@@ -1,348 +1,304 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>冯紫嫣 Shay Feng</title>
-    <meta
-      name="description"
-      content="冯紫嫣 Shay Feng 的个人网站，聚焦具身智能、机器人操控、视触觉感知、强化学习与边缘部署。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/styles.css" />
-  </head>
-  <body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shay (Ziyan) Feng — MPhil researcher in robotics, Vision-Language-Action, reinforcement learning, and visuo-tactile manipulation." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Shay Feng | Robotics · VLA · Visuo-Tactile Manipulation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
     <header class="site-header">
-      <div class="shell nav-wrap">
-        <a class="brand" href="#top">Shay Feng</a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#work">Projects</a>
-          <a href="#outputs">Outputs</a>
-          <a href="#journey">Journey</a>
-          <a href="#contact">Contact</a>
-        </nav>
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark">SF</span>
+        <span class="brand-text">Shay Feng</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#research" data-i18n="nav_research">Research</a>
+        <a href="#publications" data-i18n="nav_publications">Publications</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#awards" data-i18n="nav_awards">Awards</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">中文</button>
+        <a class="mini-button" href="#contact" data-i18n="cv_short">Contact</a>
       </div>
     </header>
 
     <main id="top">
-      <section class="hero">
-        <div class="hero-media">
-          <img
-            src="assets/images/hero-eaidc.png"
-            alt="Shay Feng operating a robot arm at EAIDC 2026"
-          />
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="hero_eyebrow">Robotics · Vision-Language-Action · Reinforcement Learning · Visuo-Tactile Sensing</div>
+          <h1>
+            <span data-i18n="hero_name">Shay (Ziyan) Feng</span>
+            <span class="accent-line" data-i18n="hero_title">MPhil Researcher in Robot Learning & Manipulation</span>
+          </h1>
+          <p class="hero-intro" data-i18n="hero_intro">
+            I build real-world robot manipulation systems that combine vision-language-action models, tactile sensing, and reinforcement learning, with a focus on force-sensitive and contact-rich interaction.
+          </p>
+          <p class="hero-sub" data-i18n="hero_sub">
+            MPhil student in Robotics and Autonomous Systems at HKUST (Guangzhou). My work spans sensing, teleoperation, multimodal data collection, closed-loop control, policy learning, and deployment on physical robots.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#publications" data-i18n="see_work">See selected work</a>
+            <a class="secondary-button" href="#skills" data-i18n="download_cv">Technical stack</a>
+          </div>
+          <div class="contact-row" aria-label="Contact links">
+            <span class="contact-item muted">Email: <span>shayfeng2002@163.com</span></span>
+            <span class="contact-sep">·</span>
+            <a class="contact-item" href="https://github.com/shayfeng" target="_blank" rel="noopener">github.com/shayfeng</a>
+          </div>
         </div>
-        <div class="shell hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Embodied AI · Robot Manipulation · Tactile Sensing</p>
-            <h1>冯紫嫣<br />Shay Feng</h1>
-            <p class="lede">
-              聚焦具身智能、机器人操控、视触觉感知与边缘部署。我的工作常常从实验系统、
-              数据采集和控制接口出发，把研究想法真正推进到可运行、可验证、可展示的形态。
-            </p>
-            <div class="badge-row">
-              <span>MPhil · 香港科技大学（广州）</span>
-              <span>自动化本科 · 西南大学</span>
-              <span>IELTS 7.0</span>
+
+        <aside class="hero-profile" aria-label="Profile summary">
+          <div class="portrait-wrap">
+            <img src="assets/images/shay-headshot.png" alt="Portrait of Shay Feng" class="portrait" />
+          </div>
+          <div class="profile-card">
+            <div class="profile-row">
+              <span class="profile-label" data-i18n="affiliation_label">Affiliation</span>
+              <strong data-i18n="affiliation_value">HKUST (Guangzhou) · Robotics & Autonomous Systems</strong>
             </div>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#work">查看项目</a>
-              <a class="button button-secondary" href="mailto:shayfeng2002@163.com">联系我</a>
+            <div class="profile-row">
+              <span class="profile-label" data-i18n="focus_label">Current focus</span>
+              <strong data-i18n="focus_value">VLA · tactile feedback · force-sensitive manipulation</strong>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label" data-i18n="platform_label">System scope</span>
+              <strong data-i18n="platform_value">Sensors → teleoperation → data → learning → real robot</strong>
             </div>
           </div>
-
-          <aside class="hero-panel">
-            <img
-              class="profile-photo"
-              src="assets/images/shay-headshot.png"
-              alt="Portrait of Shay Feng"
-            />
-            <div class="panel-copy">
-              <p class="panel-kicker">Quick Snapshot</p>
-              <ul class="signal-list">
-                <li>2026 EAIDC 全球首届具身智能开发者大会三等奖，全场第六</li>
-                <li>清华 AIR - 地瓜机器人具身智能强化营桌面机器人赛道冠军</li>
-                <li>JMRT 一作论文与 Applied Soft Computing 在投工作</li>
-                <li>长期关注触觉反射控制、机器人学习和实验系统实现</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
+        </aside>
       </section>
 
-      <section class="section intro" id="about">
-        <div class="shell split intro-grid">
+      <section class="stats-strip" aria-label="Selected highlights">
+        <article class="stat-card">
+          <span class="stat-kicker">IROS 2026</span>
+          <strong data-i18n="stat_iros">First-author paper</strong>
+          <span data-i18n="stat_iros_sub">Tactile reflex control for force-sensitive manipulation</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-kicker">CoRL 2026</span>
+          <strong data-i18n="stat_corl">First-author paper</strong>
+          <span data-i18n="stat_corl_sub">Controller-shaped demonstrations for safer policy learning</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-kicker">ICRA 2026</span>
+          <strong data-i18n="stat_icra">ManipDojo Challenge · 1st Place</strong>
+          <span data-i18n="stat_icra_sub">InternVLA + RLinf + GRPO on RoboTwin 2.0</span>
+        </article>
+      </section>
+
+      <section id="research" class="section-block">
+        <div class="section-heading">
+          <span class="section-index">01</span>
           <div>
-            <p class="section-label">About</p>
-            <h2>面向真实机器人任务的研究型工程实践。</h2>
-          </div>
-          <div class="copy">
-            <p>
-              我本科毕业于西南大学计算机与信息科学学院软件学院自动化专业，GPA 3.53，
-              2025 年起在香港科技大学（广州）攻读 MPhil。早期工作集中在 AI 嵌入式部署、
-              Web 系统与机器人调试，近阶段的核心兴趣转向具身智能、视触觉操控与学习控制。
-            </p>
-            <p>
-              我喜欢把系统做完整：从前端可视化、边缘设备部署、传感器接入，到遥操作采集、
-              强化学习实验和真实机械臂验证，尽量把研究链路接起来。
-            </p>
+            <h2 data-i18n="research_title">Research</h2>
+            <p data-i18n="research_desc">My research centers on making robot policies more reliable when physical contact matters.</p>
           </div>
         </div>
-        <div class="shell stats-grid">
-          <article class="metric">
-            <p class="metric-value">1st</p>
-            <p class="metric-label">First-author SCI paper</p>
+
+        <div class="research-grid">
+          <article class="research-card feature-card">
+            <div class="card-icon">↺</div>
+            <h3 data-i18n="research_1_title">Closed-loop tactile control</h3>
+            <p data-i18n="research_1_desc">Designing high-rate reflex layers that react to slip, contact intensity, and deformation before a slower learned policy can fail.</p>
+            <div class="tag-row"><span>TactileReflex</span><span>25 Hz</span><span>Safety layer</span></div>
           </article>
-          <article class="metric">
-            <p class="metric-value">Top 6</p>
-            <p class="metric-label">EAIDC 2026 overall ranking</p>
+          <article class="research-card">
+            <div class="card-icon">π</div>
+            <h3 data-i18n="research_2_title">Vision-Language-Action</h3>
+            <p data-i18n="research_2_desc">Fine-tuning and evaluating VLA policies for real robot manipulation, including π0.5, ACT, WALL-OSS, and InternVLA-based systems.</p>
+            <div class="tag-row"><span>π0.5</span><span>ACT</span><span>LoRA</span></div>
           </article>
-          <article class="metric">
-            <p class="metric-value">Champion</p>
-            <p class="metric-label">Desktop robot track at AIR camp</p>
+          <article class="research-card">
+            <div class="card-icon">τ</div>
+            <h3 data-i18n="research_3_title">Visuo-tactile robot learning</h3>
+            <p data-i18n="research_3_desc">Studying when tactile information should enter the control loop, the data-generation process, or the policy itself.</p>
+            <div class="tag-row"><span>McTac</span><span>Daimeng</span><span>Multimodal</span></div>
           </article>
-          <article class="metric">
-            <p class="metric-value">Edge + Robot</p>
-            <p class="metric-label">Deployment-minded systems work</p>
+          <article class="research-card">
+            <div class="card-icon">RL</div>
+            <h3 data-i18n="research_4_title">Reinforcement learning for manipulation</h3>
+            <p data-i18n="research_4_desc">Building staged reward and policy optimization pipelines for complex manipulation in simulation and real-world transfer.</p>
+            <div class="tag-row"><span>PPO</span><span>GRPO</span><span>RLinf</span></div>
           </article>
         </div>
       </section>
 
-      <section class="section work" id="work">
-        <div class="shell">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Selected Work</p>
-              <h2>近阶段最能代表我的几条工作主线。</h2>
-            </div>
-            <p class="section-note">
-              从比赛、研究到系统落地，我更在意完整链条是否真的跑通。
-            </p>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card">
-              <img
-                src="assets/images/arena-eaidc.png"
-                alt="Competition venue of EAIDC 2026"
-              />
-              <div class="project-body">
-                <p class="project-tag">Competition · Embodied AI</p>
-                <h3>EAIDC 2026 具身智能开发者大会</h3>
-                <p>
-                  在全球首届具身智能开发者大会暨「具亮计划」黑客松中，团队进入 20 强同场竞技，
-                  最终获得三等奖、全场第六名，并在水果分拣任务中拿到满分成绩。
-                </p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img
-                src="assets/images/project-camp.png"
-                alt="Cross-morphology robot VLM and PPO architecture"
-              />
-              <div class="project-body">
-                <p class="project-tag">Robot Learning</p>
-                <h3>跨形态机器人语言-视觉分层强化学习控制架构</h3>
-                <p>
-                  在清华 AIR - 地瓜机器人具身智能强化营中，参与 VLM 部署与微调、
-                  场景库搭建和轮式/足式机器人建模，项目获得桌面机器人赛道冠军。
-                </p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img
-                src="assets/images/project-agri.png"
-                alt="Southwestern University intelligent agriculture AI studio website"
-              />
-              <div class="project-body">
-                <p class="project-tag">Edge AI · Web System</p>
-                <h3>“智慧农医”病虫害智能防治系统</h3>
-                <p>
-                  参与智慧农业 AI 工作室网页与病虫害防治系统建设，负责边缘端算法部署、
-                  Web 展示交互与移动底盘方向的系统实现，并产出相关软著与项目成果。
-                </p>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img
-                src="assets/images/project-lab.png"
-                alt="Robotic arm laboratory setup"
-              />
-              <div class="project-body">
-                <p class="project-tag">Tactile Manipulation</p>
-                <h3>视触觉传感器结合机械臂操控</h3>
-                <p>
-                  近期围绕易碎容器操控中的力敏问题，推进基于噪声统计标定的触觉反射控制、
-                  机械臂闭环操作与数据课程设计，形成 IROS 在投与 CoRL 规划中的两个 milestone。
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section spotlight">
-        <div class="shell spotlight-grid">
-          <div class="spotlight-copy">
-            <p class="section-label">Latest</p>
-            <h2>正在推进的方向，是把“安全操控”做成可复用能力。</h2>
-            <p>
-              当前的研究重点落在视触觉反射控制与机器人学习的衔接上：一方面，让控制器在部署阶段
-              成为可即插即用的安全层；另一方面，把它在训练与遥操作采集中转化为更稳定的课程和数据。
-            </p>
-            <ul class="note-list">
-              <li>Milestone 1：面向动态倒水与防变形抓取的 TactileReflex 闭环控制</li>
-              <li>Milestone 2：把触觉反射控制器作为训练课程注入行为克隆与策略学习</li>
-              <li>目标：提升具身模型在脆弱物体上的稳定抓取与跨物体泛化能力</li>
-            </ul>
-          </div>
-          <div class="spotlight-media">
-            <img
-              src="assets/images/robot-ops.png"
-              alt="Shay Feng operating robot arms during competition"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="section outputs" id="outputs">
-        <div class="shell">
-          <div class="section-head">
-            <div>
-              <p class="section-label">Outputs</p>
-              <h2>论文、软著与正在扩展的研究产出。</h2>
-            </div>
-          </div>
-          <div class="output-grid">
-            <article class="output-card">
-              <p class="project-tag">Publication</p>
-              <h3>Effect of high current pulsed electron beam...</h3>
-              <p>
-                Journal of Materials Research and Technology，第一作者。
-                负责实验检测数据处理与分析。
-              </p>
-            </article>
-            <article class="output-card">
-              <p class="project-tag">Publication</p>
-              <h3>Edge AI-enabled ultra-lightweight convolutional neural network...</h3>
-              <p>
-                Applied Soft Computing Journal，在投。第二作者，
-                参与边缘计算方案、数据分析与论文撰写。
-              </p>
-            </article>
-            <article class="output-card">
-              <p class="project-tag">Software Copyright</p>
-              <h3>智慧农业知识一键查询软件 V1.0</h3>
-              <p>
-                第一作者；另有“基于 Python 和 HTML 的植物病虫害检测分析平台 V1.0”
-                以学校名义申请。
-              </p>
-            </article>
-            <article class="output-card">
-              <p class="project-tag">Patent</p>
-              <h3>适合边缘智能设备部署的茶叶病害识别方法</h3>
-              <p>
-                国家发明专利申请，第三发明人。延续了我在 Edge AI 与农业场景上的系统化实践。
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section timeline" id="journey">
-        <div class="shell split">
+      <section id="publications" class="section-block">
+        <div class="section-heading">
+          <span class="section-index">02</span>
           <div>
-            <p class="section-label">Journey</p>
-            <h2>从嵌入式与机器人系统，到具身智能研究。</h2>
+            <h2 data-i18n="pub_title">Selected Publications</h2>
+            <p data-i18n="pub_desc">Selected first-author work in tactile robot manipulation and robot learning.</p>
           </div>
-          <div class="timeline-list">
-            <div class="timeline-item">
-              <span class="timeline-mark"></span>
-              <div>
-                <h3>2022.08</h3>
-                <p>
-                  加入西南大学人工智能学院 AI 工作室，负责 AI 嵌入式开发部署、机器人开发调试、
-                  Web 网页系统搭建和项目参赛支撑。
-                </p>
-              </div>
+        </div>
+
+        <div class="publication-list">
+          <article class="publication-card featured-publication">
+            <div class="pub-meta"><span class="venue">IROS 2026</span><span class="role" data-i18n="first_author">First Author</span></div>
+            <h3>TactileReflex: Noise-Statistics-Driven Vision-Tactile Reflex Control for Force-Sensitive Manipulation</h3>
+            <p class="pub-summary" data-i18n="iros_summary">A self-calibrating tactile reflex controller that uses sensor noise statistics instead of external force calibration, material models, or manually tuned thresholds.</p>
+            <div class="contribution-grid">
+              <div><span data-i18n="problem">Problem</span><strong data-i18n="iros_problem">Learned or teleoperated grasping can react too slowly to slip and excessive contact force.</strong></div>
+              <div><span data-i18n="method">Method</span><strong data-i18n="iros_method">Three reflex channels for slip suppression, weight-adaptive release, and force protection at ~25 Hz.</strong></div>
+              <div><span data-i18n="result">Result</span><strong data-i18n="iros_result">90% success in dynamic pouring; irreversible deformation prevented in 5/5 soft-cup trials.</strong></div>
             </div>
-            <div class="timeline-item">
-              <span class="timeline-mark"></span>
-              <div>
-                <h3>2023.08</h3>
-                <p>
-                  参与西南大学材料学院科研工作，围绕 HCPEB 与显微检测数据开展处理分析，
-                  完成跨学科研究训练。
-                </p>
-              </div>
+            <div class="pub-links"><a href="https://arxiv.org/abs/2605.23568" target="_blank" rel="noopener">arXiv</a></div>
+          </article>
+
+          <article class="publication-card featured-publication">
+            <div class="pub-meta"><span class="venue">CoRL 2026</span><span class="role" data-i18n="first_author">First Author</span></div>
+            <h3>What is the Better Curriculum: Controller-Shaped Grasping Behavior for Contact Force-Sensitive Manipulation</h3>
+            <p class="pub-summary" data-i18n="corl_summary">Instead of adding tactile sensing to policy inference, high-rate tactile feedback shapes demonstrations during data collection so standard policies learn safer force-sensitive behavior.</p>
+            <div class="contribution-grid">
+              <div><span data-i18n="problem">Problem</span><strong data-i18n="corl_problem">Naively adding tactile inputs does not necessarily improve policy learning.</strong></div>
+              <div><span data-i18n="method">Method</span><strong data-i18n="corl_method">Keep policy inputs and architecture fixed; change only the demonstration source using tactile closed-loop shaping.</strong></div>
+              <div><span data-i18n="result">Result</span><strong data-i18n="corl_result">Stable grasping: ACT 15%→95%, π0.5 5%→95%; tactile reflex re-engagement recovers disturbed executions.</strong></div>
             </div>
-            <div class="timeline-item">
-              <span class="timeline-mark"></span>
-              <div>
-                <h3>2025.01 - 2025.02</h3>
-                <p>
-                  参加清华 AIR - 地瓜机器人具身智能强化营，学习强化学习、Mujoco、
-                  Isaac Gym/Sim 与跨形态机器人控制。
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-mark"></span>
-              <div>
-                <h3>2025.08 - Now</h3>
-                <p>
-                  于香港科技大学（广州）攻读 MPhil，持续推进机器人操控、视触觉感知与学习控制相关研究。
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-mark"></span>
-              <div>
-                <h3>2026</h3>
-                <p>
-                  在 EAIDC 2026 与相关公开分享中，进一步把研究、系统实现与公开表达连接起来。
-                </p>
-              </div>
-            </div>
-          </div>
+            <div class="pub-links"><span class="disabled-link">CoRL 2026 · Accepted</span></div>
+          </article>
+
+          <article class="publication-card compact-publication">
+            <div class="pub-meta"><span class="venue">Applied Soft Computing · 2026</span><span class="role" data-i18n="co_first_author">Co-first Author</span></div>
+            <h3><a href="https://doi.org/10.1016/j.asoc.2026.116074" target="_blank" rel="noopener">Edge AI-enabled Ultra-lightweight Convolutional Neural Network for Tea Leaf Disease Diagnosis</a></h3>
+            <p data-i18n="asc_summary">Edge-computing system design, data analysis, embedded AI deployment, and manuscript preparation.</p>
+          </article>
+
+          <article class="publication-card compact-publication">
+            <div class="pub-meta"><span class="venue">Journal of Materials Research and Technology</span><span class="role" data-i18n="first_author">First Author</span></div>
+            <h3>Effect of High Current Pulsed Electron Beam on Surface Microstructure and Properties of Cold-rolled Austenitic Stainless Steel</h3>
+            <p data-i18n="jmrt_summary">Experimental data processing and analysis of microstructure and material-property changes under HCPEB treatment.</p>
+          </article>
         </div>
       </section>
 
-      <section class="section contact" id="contact">
-        <div class="shell contact-band">
+      <section id="projects" class="section-block">
+        <div class="section-heading">
+          <span class="section-index">03</span>
           <div>
-            <p class="section-label">Contact</p>
-            <h2>欢迎交流具身智能、机器人操控与系统实现。</h2>
-            <p>
-              如果你也在做机器人学习、实验平台、触觉感知或边缘部署相关工作，很愿意聊一聊。
-            </p>
+            <h2 data-i18n="projects_title">Systems & Projects</h2>
+            <p data-i18n="projects_desc">I prefer end-to-end systems work: sensing, data collection, control, learning, and deployment.</p>
           </div>
-          <div class="contact-links">
-            <a href="mailto:shayfeng2002@163.com">shayfeng2002@163.com</a>
-            <a href="https://github.com/shayfeng">github.com/shayfeng</a>
-            <span>CSDN: Shay F</span>
-            <span>重庆 / 广州</span>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-time">2025.09 — Present</div>
+            <div class="timeline-content">
+              <h3 data-i18n="proj_1_title">Visuo-tactile intelligent manipulation · HKUST(GZ) RIL-LAB</h3>
+              <p data-i18n="proj_1_desc">Built the research stack from scratch: tactile sensor integration, 25 Hz reflex control, Meta Quest 3 teleoperation, multimodal synchronized collection, and VLA policy training/deployment.</p>
+              <div class="tag-row"><span>ROS2</span><span>Meta Quest 3</span><span>π0.5</span><span>McTac</span><span>Daimeng</span></div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-time">2026.07 — Present</div>
+            <div class="timeline-content">
+              <h3 data-i18n="proj_2_title">Robotics RL Intern · Motphys</h3>
+              <p data-i18n="proj_2_desc">Research and system design for visuo-tactile simulation and Sim-to-Real, comparing tactile simulation routes including TacSL, Tactile Genesis, XenSim, Kinematic Taxel, and Elastomer Taxel.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-time">2025.01 — 2025.03</div>
+            <div class="timeline-content">
+              <h3 data-i18n="proj_3_title">Embodied AI Bootcamp · Tsinghua AIR × D-Robotics</h3>
+              <p data-i18n="proj_3_desc">Built a hierarchical system with high-level VLM task understanding and low-level PPO control; won the tabletop robot track championship.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-time">2022.08 — 2025.07</div>
+            <div class="timeline-content">
+              <h3 data-i18n="proj_4_title">Edge AI & Embedded Systems · Southwest University DW Studio</h3>
+              <p data-i18n="proj_4_desc">Worked on embedded AI deployment, robot-system debugging, and web visualization, connecting algorithms, edge devices, and front-end interfaces.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="awards" class="section-block">
+        <div class="section-heading">
+          <span class="section-index">04</span>
+          <div>
+            <h2 data-i18n="awards_title">Competitions & Honors</h2>
+            <p data-i18n="awards_desc">Selected robotics, AI, engineering, and innovation awards.</p>
           </div>
+        </div>
+
+        <div class="award-feature-grid">
+          <article class="award-feature">
+            <span class="award-year">2026</span>
+            <h3>ICRA ManipDojo Challenge · 1st Place</h3>
+            <p data-i18n="award_icra_desc">InternVLA + RLinf on RoboTwin 2.0, with GRPO, AttenA+, and staged dense rewards. Final score: 90.1/100.</p>
+          </article>
+          <article class="award-feature">
+            <span class="award-year">2026</span>
+            <h3 data-i18n="award_eaidc_title">EAIDC Greater Bay Area Finals · Third Prize</h3>
+            <p data-i18n="award_eaidc_desc">Dual-arm data collection and π0.5 / WALL-OSS policy training for multiple real-robot manipulation tasks.</p>
+          </article>
+          <article class="award-feature">
+            <span class="award-year">2025</span>
+            <h3 data-i18n="award_air_title">Tsinghua AIR × D-Robotics Embodied AI Bootcamp · Champion</h3>
+            <p data-i18n="award_air_desc">Tabletop robot track; hierarchical VLM + PPO system.</p>
+          </article>
+        </div>
+
+        <div class="award-list">
+          <div><strong data-i18n="honor_provincial">Advanced Individual for Innovation Capacity Enhancement among Chongqing Universities</strong><span data-i18n="honor_provincial_tag">Provincial-level honor</span></div>
+          <div><strong data-i18n="award_robot">China Robot & Artificial Intelligence Competition</strong><span data-i18n="award_robot_tag">National Second Prize</span></div>
+          <div><strong data-i18n="award_challenge">Challenge Cup</strong><span data-i18n="award_challenge_tag">Provincial Special Prize</span></div>
+          <div><strong data-i18n="award_media">National College Student Digital Media Technology Competition</strong><span data-i18n="award_media_tag">National Third Prize</span></div>
+          <div><strong data-i18n="award_ai">National University Computer Capability Challenge · AI / Big Data</strong><span data-i18n="award_ai_tag">Two postgraduate-track Third Prizes</span></div>
+          <div><strong data-i18n="award_internet">China International “Internet+” Innovation & Entrepreneurship Competition</strong><span data-i18n="award_internet_tag">Provincial Bronze Award</span></div>
+        </div>
+      </section>
+
+      <section id="skills" class="section-block">
+        <div class="section-heading">
+          <span class="section-index">05</span>
+          <div>
+            <h2 data-i18n="skills_title">Technical Stack</h2>
+            <p data-i18n="skills_desc">A practical stack for robot learning research and real-system integration.</p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group"><h3 data-i18n="skill_robotics">Robotics & Deployment</h3><p>ROS2 · JAKA · PiPER · LimX · NERO · single/dual-arm control · VR teleoperation · coordinate transforms · synchronized sensing · TCP</p></article>
+          <article class="skill-group"><h3 data-i18n="skill_vla">VLA & Imitation Learning</h3><p>π0.5 / OpenPI · ACT · WALL-OSS · InternVLA · embodied data collection · LoRA fine-tuning · real-robot inference & evaluation</p></article>
+          <article class="skill-group"><h3 data-i18n="skill_rl">Reinforcement Learning</h3><p>PPO · GRPO · RLinf · RoboTwin 2.0 · reward design · staged training · policy evaluation · VLM + RL hierarchy</p></article>
+          <article class="skill-group"><h3 data-i18n="skill_tactile">Tactile & Force-sensitive Control</h3><p>McTac · Daimeng · contact/slip/deformation metrics · noise-statistics calibration · 25 Hz reflex control · visuo-tactile synchronization</p></article>
+          <article class="skill-group"><h3 data-i18n="skill_sim">Simulation & ML</h3><p>MuJoCo · Isaac Gym · Isaac Sim · PyTorch · Hugging Face · LoRA · Sim-to-Real evaluation</p></article>
+          <article class="skill-group"><h3 data-i18n="skill_eng">Programming & Engineering</h3><p>Python · C · C# · Java · HTML · Unity · Linux · edge AI deployment · web visualization · FPGA fundamentals · hardware/software debugging</p></article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div>
+          <span class="section-index">06</span>
+          <h2 data-i18n="contact_title">Contact</h2>
+          <p data-i18n="contact_desc">For research collaboration, robotics projects, or academic discussion, feel free to reach out.</p>
+        </div>
+        <div class="contact-panel">
+          <a href="mailto:shayfeng2002@163.com"><span>Email</span><strong>shayfeng2002@163.com</strong></a>
+          <a href="https://github.com/shayfeng" target="_blank" rel="noopener"><span>GitHub</span><strong>github.com/shayfeng</strong></a>
+          <a href="https://arxiv.org/abs/2605.23568" target="_blank" rel="noopener"><span>Latest paper</span><strong>TactileReflex · arXiv</strong></a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="shell footer-wrap">
-        <p>© <span id="year"></span> 冯紫嫣 Shay Feng</p>
-        <p>Built for GitHub Pages.</p>
-      </div>
+      <span>© <span id="year"></span> Shay Feng</span>
+      <span data-i18n="footer_text">Built as a lightweight static site for GitHub Pages.</span>
     </footer>
+  </div>
 
-    <script src="assets/script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -42,7 +42,13 @@ const translations = {
   "personal_honors": "个人荣誉",
   "honor_drobotics": "地瓜机器人年度星推官",
   "honor_provincial": "省级创新创业先进个人",
-  "swu_honors": "一等奖学金 · 优秀毕业生 · 创新奖"
+  "swu_honors": "一等奖学金 · 优秀毕业生 · 创新奖",
+  "paper_more": "更多",
+  "paper_less": "收起",
+  "iros_figure": "TactileReflex 系统框架",
+  "asc_figure": "CM2-Net 图形摘要",
+  "figure_full": "查看大图",
+  "figure_source": "图片来源"
 };
 const toggle = document.getElementById("langToggle");
 const nodes = [...document.querySelectorAll("[data-i18n]")];

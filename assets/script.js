@@ -1,5 +1,6 @@
 "use strict";
 const translations = {
+  "iros_pouring": "倒水对比：左侧未启用反射控制，杯体滑移；右侧启用 TactileReflex，稳定完成倒水。",
   "t1": "论文",
   "t2": "研究",
   "t3": "经历",

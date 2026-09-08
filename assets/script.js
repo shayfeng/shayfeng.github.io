@@ -1,5 +1,7 @@
 "use strict";
 const translations = {
+  "corl_teaser": "Teaser：通过控制器塑造示范，实现易损物体的稳定抓取。",
+  "corl_system": "系统总览：示范采集、无触觉输入的策略学习与部署。",
   "iros_pouring": "倒水对比：左侧未启用反射控制，杯体滑移；右侧启用 TactileReflex，稳定完成倒水。",
   "t1": "论文",
   "t2": "研究",

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project page for What is the Better Curriculum: Controller-Shaped Grasping Behavior for Contact Force-Sensitive Manipulation, CoRL 2026.">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta property="og:title" content="What is the Better Curriculum? · CoRL 2026">
+  <meta property="og:description" content="Tactile feedback as a collection-time teacher for tactile-free force-sensitive manipulation policies.">
+  <meta property="og:image" content="../assets/images/corl-teaser.jpg">
+  <title>What is the Better Curriculum? · CoRL 2026</title>
+  <link rel="stylesheet" href="styles.css?v=20260917">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Back to top">
+      <span>BETTER CURRICULUM</span>
+      <small>CoRL 2026</small>
+    </a>
+    <nav aria-label="Project navigation">
+      <a href="#idea">The idea</a>
+      <a href="#method">Method</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#boundary">Boundary</a>
+      <a href="../">Ziyan Feng ↗</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-kicker">10TH CONFERENCE ON ROBOT LEARNING · 2026</div>
+      <h1>What is the Better Curriculum?</h1>
+      <p class="subtitle">Controller-Shaped Grasping Behavior for Contact Force-Sensitive Manipulation</p>
+      <p class="authors">
+        <strong>Ziyan Feng</strong> · Zizhao Yuan · Yulong Fu · Yuxin He · Zhiyuan Zhang · Zhengjie Zhang · Jinni Zhou · Renjing Xu · Qiang Nie<sup>*</sup>
+      </p>
+      <p class="affiliation">The Hong Kong University of Science and Technology (Guangzhou)</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#idea">Explore the project ↓</a>
+        <span class="button muted" aria-disabled="true">Paper · coming soon</span>
+      </div>
+      <p class="micro-note">* Corresponding author</p>
+    </section>
+
+    <figure class="hero-figure figure-card">
+      <a href="../assets/images/corl-teaser.jpg" target="_blank" rel="noopener">
+        <img src="../assets/images/corl-teaser.jpg" alt="Leader-follower teleoperation with reflex-assisted and manual fragile-cup grasping" width="2376" height="1071">
+      </a>
+      <figcaption>
+        <span><b>Fig. 1.</b> Leader–follower collection for fragile-cup grasping. The tactile reflex closes the fast contact loop while the human guides the task.</span>
+        <a href="../assets/images/corl-teaser.jpg" target="_blank" rel="noopener">Full resolution ↗</a>
+      </figcaption>
+    </figure>
+
+    <section class="section" id="idea">
+      <div class="section-label">01 / THE IDEA</div>
+      <div class="section-grid intro-grid">
+        <div>
+          <p class="eyebrow">FROM THE AUTHORS’ REBUTTAL CLARIFICATION</p>
+          <h2>What if touch could teach through the data?</h2>
+        </div>
+        <div class="prose lead">
+          <p>We initially set out to train tactile-conditioned policies. Adding two tactile-image streams did not reliably help in our setup: ACT degraded substantially, while π0.5 retained task ability without a clear gain.</p>
+          <p>Yet policies trained on reflex-assisted demonstrations already performed well <em>without tactile input at inference</em>. This changed the question: instead of asking only how to fuse touch into a policy, can high-rate tactile control during collection shape demonstrations so that force-sensitive behavior becomes easier to learn?</p>
+          <p class="claim"><strong>Central claim.</strong> Tactile feedback can act as a <b>collection-time teacher</b>: it makes a narrow, force-valid contact regime repeatable in the demonstrations, and a tactile-free student can learn that nominal behavior.</p>
+        </div>
+      </div>
+
+      <div class="problem-strip">
+        <div><b>3.5 g</b><span>plastic cup</span></div>
+        <div><b>0.3 mm</b><span>wall thickness</span></div>
+        <div><b>sub-Newton</b><span>damage-sensitive contact</span></div>
+        <div class="problem-text">Too little grip slips. Too much grip deforms. The viable region is narrow and hard to judge visually during teleoperation.</div>
+      </div>
+    </section>
+
+    <section class="section alt" id="method">
+      <div class="section-label">02 / THE MECHANISM</div>
+      <div class="section-grid">
+        <div>
+          <p class="eyebrow">CHANGE COLLECTION. KEEP THE POLICY INTERFACE.</p>
+          <h2>Make stable contact collectable. Then make it learnable.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Shape the demonstration</h3>
+            <p>A deterministic tactile reflex regulates the gripper at <strong>25 Hz</strong> while the human guides the arm. We log the follower’s realized actions, including the controller’s corrections.</p>
+            <small>Human intent + tactile closed loop</small>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Learn nominal behavior</h3>
+            <p>ACT or π0.5 learns from RGB and robot state. Within each backbone, the main comparison keeps architecture, inputs, and training procedure fixed; the demonstration source changes.</p>
+            <small>Tactile-free policy learning</small>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Separate fast correction</h3>
+            <p>At deployment, the policy can control both arm and gripper. A second mode re-engages the tactile arbiter, retaining fast gripper authority for disturbance rejection.</p>
+            <small>Same policy · optional tactile arbiter</small>
+          </article>
+        </div>
+      </div>
+
+      <figure class="figure-card wide">
+        <a href="../assets/images/corl-system.jpg" target="_blank" rel="noopener">
+          <img src="../assets/images/corl-system.jpg" alt="System overview of reflex-shaped data collection, tactile-free policy learning and decoupled deployment" width="2376" height="1026" loading="lazy">
+        </a>
+        <figcaption>
+          <span><b>Fig. 2.</b> Teleoperated data collection → tactile-free policy learning → decoupled policy/arm and reflex/gripper deployment.</span>
+          <a href="../assets/images/corl-system.jpg" target="_blank" rel="noopener">Full resolution ↗</a>
+        </figcaption>
+      </figure>
+
+      <div class="definition">
+        <span>WHAT “CURRICULUM” MEANS HERE</span>
+        <p>The <strong>controller-shaped demonstration distribution</strong> — not a staged training schedule.</p>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="section-label">03 / THE EVIDENCE</div>
+      <div class="section-grid evidence-head">
+        <div>
+          <p class="eyebrow">MAIN CONTROLLED COMPARISON</p>
+          <h2>Same student. A better teacher in the data.</h2>
+        </div>
+        <div class="prose">
+          <p><strong>30 demonstrations</strong> per source. <strong>20 nominal trials</strong> per condition. Student inference uses no tactile input.</p>
+          <p>The intervention is upstream: improve the contact behavior present in the demonstrations, then train the same tactile-free policy interface.</p>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric-card emphasis">
+          <div class="metric-top"><span>ACT</span><small>Primary controlled test</small></div>
+          <div class="comparison">
+            <div><b>95%</b><span>Reflex-shaped data</span><small>19 / 20 stable</small></div>
+            <div class="arrow">vs.</div>
+            <div><b>15%</b><span>Visual-screened manual data</span><small>3 / 20 stable</small></div>
+          </div>
+          <p>Controller-shaped collection changes what the student learns, not merely how failures are handled at runtime.</p>
+        </article>
+
+        <article class="metric-card">
+          <div class="metric-top"><span>π0.5</span><small>Backbone transfer</small></div>
+          <div class="comparison">
+            <div><b>95%</b><span>Reflex-shaped data</span><small>19 / 20 stable</small></div>
+            <div class="arrow">vs.</div>
+            <div><b>5%</b><span>Manual data</span><small>1 / 20 stable</small></div>
+          </div>
+          <p>The effect is not specific to ACT: the same data intervention substantially improves nominal grasp stability for π0.5.</p>
+        </article>
+      </div>
+
+      <div class="evidence-columns">
+        <article class="text-card">
+          <p class="eyebrow">BEYOND VISUAL SCREENING</p>
+          <h3>Better selection alone did not close the gap.</h3>
+          <p>A fresh manual pool was ranked using logged contact quality. ACT trained on its top 30 demonstrations reached <strong>30% stable grasps (6/20)</strong>, versus <strong>95% (19/20)</strong> with reflex-shaped data.</p>
+          <small>Contact traces were used for offline selection only.</small>
+        </article>
+        <article class="text-card">
+          <p class="eyebrow">WHY THE BEHAVIOR TRANSFERS</p>
+          <h3>The student recovers the teacher’s closing profile.</h3>
+          <p>A sustained teacher-near run of at least 10 frames occurs in <strong>15/20</strong> reflex-data ACT episodes, versus <strong>0/20</strong> with visually screened manual data.</p>
+          <small>The learned effect appears in grasp trajectory shape, not only final success.</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dark" id="boundary">
+      <div class="section-label">04 / THE CENTRAL INSIGHT</div>
+      <div class="boundary-grid">
+        <div>
+          <p class="eyebrow">NOMINAL BEHAVIOR ≠ FAST TACTILE REACTIVITY</p>
+          <h2>Behavior transfers. Fast correction still needs feedback.</h2>
+          <p>Learning from tactile-shaped demonstrations does not transfer the full tactile feedback loop. Under randomized lateral disturbances, the same reflex-data π0.5 policy benefits from a separate 25 Hz gripper arbiter.</p>
+        </div>
+        <div class="disturbance-card">
+          <span>GRASP RETENTION UNDER DISTURBANCE</span>
+          <div class="disturbance-row">
+            <div><small>Policy only</small><strong>55%</strong><span>11 / 20 retained</span></div>
+            <div><small>Policy + tactile arbiter</small><strong>100%</strong><span>20 / 20 retained</span></div>
+          </div>
+          <p>The policy keeps arm control. The reflex keeps fast gripper authority.</p>
+        </div>
+      </div>
+      <p class="caveat">The 20/20 result is an observed outcome under this disturbance protocol, not a universal safety guarantee.</p>
+    </section>
+
+    <section class="section" id="scope">
+      <div class="section-label">05 / SCOPE &amp; REFINEMENT</div>
+      <div class="scope-grid">
+        <article class="scope-card">
+          <p class="eyebrow">EXPLORATORY GENERALIZATION</p>
+          <h3>An unseen paper cup</h3>
+          <div class="big-pair"><b>80%</b><span>vs.</span><b>30%</b></div>
+          <p>π0.5 stable grasps for reflex-data versus visually screened manual-data: <strong>8/10 vs. 3/10</strong>.</p>
+          <small>The trend is favorable but not statistically significant (two-sided Fisher p = 0.0698); this is preliminary scope evidence, not a broad generalization claim.</small>
+        </article>
+        <article class="scope-card">
+          <p class="eyebrow">SECONDARY TRAINING REFINEMENT</p>
+          <h3>Sharper entry, faster release</h3>
+          <p>A gripper dynamics loss matches second-order differences in the demonstrated trajectory, improving teacher-near entry and reducing release time without adding tactile policy inputs.</p>
+          <div class="release-grid"><div><b>14.6%</b><span>ACT release-time reduction</span></div><div><b>22.8%</b><span>π0.5 release-time reduction</span></div></div>
+        </article>
+      </div>
+
+      <div class="scope-note">
+        <h3>Where the claim is strongest</h3>
+        <p>Direct-contact fragile-container manipulation with a narrow viable force window. The experiments cover disposable cups, one unseen paper-cup variant, and one disturbance family. They establish a collection-time role for tactile sensing; they do <strong>not</strong> claim that tactile-free policies are generally better than tactile-conditioned policies.</p>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <p class="eyebrow">THE TAKEAWAY</p>
+      <h2>Tactile sensing can improve what a policy learns <em>before policy training even begins.</em></h2>
+      <div class="takeaway-steps">
+        <span>Use feedback to make good contact behavior repeatable.</span>
+        <span>Learn that behavior from demonstrations.</span>
+        <span>Keep fast feedback where the task still requires it.</span>
+      </div>
+      <div class="hero-actions centered">
+        <a class="button primary" href="https://github.com/shayfeng" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="button secondary" href="../">Ziyan Feng · homepage ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>What is the Better Curriculum?</strong><span>CoRL 2026 · HKUST (Guangzhou)</span></div>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

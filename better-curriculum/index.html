@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Project page for What is the Better Curriculum: Controller-Shaped Grasping Behavior for Contact Force-Sensitive Manipulation, CoRL 2026.">
-  <meta name="theme-color" content="#f7f5ef">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="What is the Better Curriculum? · CoRL 2026">
   <meta property="og:description" content="Tactile feedback as a collection-time teacher for tactile-free force-sensitive manipulation policies.">
   <meta property="og:image" content="../assets/images/corl-teaser.jpg">
   <title>What is the Better Curriculum? · CoRL 2026</title>
-  <link rel="stylesheet" href="styles.css?v=20260917">
+  <link rel="stylesheet" href="styles.css?v=20260917b">
+  <script src="script.js?v=20260917b" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -31,7 +32,7 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-kicker">10TH CONFERENCE ON ROBOT LEARNING · 2026</div>
-      <h1>What is the Better Curriculum?</h1>
+      <h1>What is the <span>Better Curriculum?</span></h1>
       <p class="subtitle">Controller-Shaped Grasping Behavior for Contact Force-Sensitive Manipulation</p>
       <p class="authors">
         <strong>Ziyan Feng</strong> · Zizhao Yuan · Yulong Fu · Yuxin He · Zhiyuan Zhang · Zhengjie Zhang · Jinni Zhou · Renjing Xu · Qiang Nie<sup>*</sup>
@@ -59,7 +60,7 @@
       <div class="section-grid intro-grid">
         <div>
           <p class="eyebrow">FROM THE AUTHORS’ REBUTTAL CLARIFICATION</p>
-          <h2>What if touch could teach through the data?</h2>
+          <h2>What if touch could <span class="accent-text">teach through the data?</span></h2>
         </div>
         <div class="prose lead">
           <p>We initially set out to train tactile-conditioned policies. Adding two tactile-image streams did not reliably help in our setup: ACT degraded substantially, while π0.5 retained task ability without a clear gain.</p>
@@ -81,7 +82,7 @@
       <div class="section-grid">
         <div>
           <p class="eyebrow">CHANGE COLLECTION. KEEP THE POLICY INTERFACE.</p>
-          <h2>Make stable contact collectable. Then make it learnable.</h2>
+          <h2>Make stable contact collectable. <span class="accent-text">Then make it learnable.</span></h2>
         </div>
         <div class="steps">
           <article>
@@ -121,39 +122,52 @@
       </div>
     </section>
 
-    <section class="section" id="evidence">
+    <section class="section evidence-section" id="evidence">
       <div class="section-label">03 / THE EVIDENCE</div>
-      <div class="section-grid evidence-head">
+      <div class="evidence-intro">
         <div>
-          <p class="eyebrow">MAIN CONTROLLED COMPARISON</p>
-          <h2>Same student. A better teacher in the data.</h2>
+          <h2>Same student.<br><span class="accent-text">A better teacher in the data.</span></h2>
         </div>
-        <div class="prose">
-          <p><strong>30 demonstrations</strong> per source. <strong>20 nominal trials</strong> per condition. Student inference uses no tactile input.</p>
-          <p>The intervention is upstream: improve the contact behavior present in the demonstrations, then train the same tactile-free policy interface.</p>
+        <div class="evidence-context">
+          <p class="eyebrow">MAIN CONTROLLED COMPARISON</p>
+          <p><strong>30 training demonstrations</strong> per source.<br><strong>20 nominal trials</strong> per condition.<br>Student inference uses no tactile input.</p>
         </div>
       </div>
 
-      <div class="metric-grid">
-        <article class="metric-card emphasis">
-          <div class="metric-top"><span>ACT</span><small>Primary controlled test</small></div>
-          <div class="comparison">
-            <div><b>95%</b><span>Reflex-shaped data</span><small>19 / 20 stable</small></div>
-            <div class="arrow">vs.</div>
-            <div><b>15%</b><span>Visual-screened manual data</span><small>3 / 20 stable</small></div>
+      <div class="interactive-evidence" aria-label="Interactive stable-grasp comparison">
+        <div class="evidence-card-head">
+          <div>
+            <h3>Stable grasps on the nominal plastic cup</h3>
+            <p id="evidence-meta">π₀.₅ · cross-backbone validation · Table 3</p>
           </div>
-          <p>Controller-shaped collection changes what the student learns, not merely how failures are handled at runtime.</p>
-        </article>
+          <div class="model-switch" data-evidence-switch role="tablist" aria-label="Select policy backbone">
+            <button type="button" role="tab" data-model="act" aria-selected="false" tabindex="-1">ACT</button>
+            <button type="button" role="tab" data-model="pi05" class="active" aria-selected="true">π<sub>0.5</sub></button>
+          </div>
+        </div>
 
-        <article class="metric-card">
-          <div class="metric-top"><span>π0.5</span><small>Backbone transfer</small></div>
-          <div class="comparison">
-            <div><b>95%</b><span>Reflex-shaped data</span><small>19 / 20 stable</small></div>
-            <div class="arrow">vs.</div>
-            <div><b>5%</b><span>Manual data</span><small>1 / 20 stable</small></div>
+        <div class="evidence-bars">
+          <div class="evidence-row" data-evidence-row>
+            <div class="evidence-row-label"><strong data-row-label>Reflex-shaped data</strong><span data-row-sub>Policy only</span></div>
+            <div class="bar-track" aria-hidden="true"><div class="bar-fill blue" data-row-fill style="width:95%"></div></div>
+            <div class="evidence-score"><strong data-row-score>95%</strong><span data-row-count>19 / 20</span></div>
           </div>
-          <p>The effect is not specific to ACT: the same data intervention substantially improves nominal grasp stability for π0.5.</p>
-        </article>
+          <div class="evidence-row" data-evidence-row>
+            <div class="evidence-row-label"><strong data-row-label>Visually screened manual data</strong><span data-row-sub>Policy only</span></div>
+            <div class="bar-track" aria-hidden="true"><div class="bar-fill warm" data-row-fill style="width:5%"></div></div>
+            <div class="evidence-score"><strong data-row-score>5%</strong><span data-row-count>1 / 20</span></div>
+          </div>
+          <div class="evidence-row" data-evidence-row>
+            <div class="evidence-row-label"><strong data-row-label>Visually screened manual data</strong><span data-row-sub>Policy + runtime arbiter</span></div>
+            <div class="bar-track" aria-hidden="true"><div class="bar-fill slate" data-row-fill style="width:55%"></div></div>
+            <div class="evidence-score"><strong data-row-score>55%</strong><span data-row-count>11 / 20</span></div>
+          </div>
+        </div>
+
+        <div class="evidence-summary">
+          <p id="evidence-takeaway"><strong>Collection-time shaping matters.</strong> Runtime arbitration only partially recovers the nominal performance of a policy trained on manual data.</p>
+          <small id="evidence-footnote">30 training demonstrations per source · 20 nominal trials per condition · student inference uses no tactile input.</small>
+        </div>
       </div>
 
       <div class="evidence-columns">
@@ -177,7 +191,7 @@
       <div class="boundary-grid">
         <div>
           <p class="eyebrow">NOMINAL BEHAVIOR ≠ FAST TACTILE REACTIVITY</p>
-          <h2>Behavior transfers. Fast correction still needs feedback.</h2>
+          <h2>Behavior transfers. <span>Fast correction still needs feedback.</span></h2>
           <p>Learning from tactile-shaped demonstrations does not transfer the full tactile feedback loop. Under randomized lateral disturbances, the same reflex-data π0.5 policy benefits from a separate 25 Hz gripper arbiter.</p>
         </div>
         <div class="disturbance-card">
@@ -218,7 +232,7 @@
 
     <section class="takeaway">
       <p class="eyebrow">THE TAKEAWAY</p>
-      <h2>Tactile sensing can improve what a policy learns <em>before policy training even begins.</em></h2>
+      <h2>Tactile sensing can improve what a policy learns <span>before policy training even begins.</span></h2>
       <div class="takeaway-steps">
         <span>Use feedback to make good contact behavior repeatable.</span>
         <span>Learn that behavior from demonstrations.</span>

@@ -69,3 +69,14 @@ function applyLanguage(next) {
 toggle.hidden = false;
 toggle.addEventListener("click", () => applyLanguage(language === "en" ? "zh" : "en"));
 applyLanguage(language);
+
+const curriculum = document.getElementById("curriculum");
+if (curriculum && !curriculum.querySelector('a[href="better-curriculum/"]')) {
+  const details = curriculum.querySelector("details.paper-details");
+  const projectLink = document.createElement("a");
+  projectLink.className = "paper-link";
+  projectLink.href = "better-curriculum/";
+  projectLink.textContent = "Project Page ↗";
+  if (details) curriculum.insertBefore(projectLink, details);
+  else curriculum.appendChild(projectLink);
+}

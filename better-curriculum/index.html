@@ -9,8 +9,8 @@
   <meta property="og:description" content="Tactile feedback as a collection-time teacher for tactile-free force-sensitive manipulation policies.">
   <meta property="og:image" content="../assets/images/corl-teaser.jpg">
   <title>What is the Better Curriculum? · CoRL 2026</title>
-  <link rel="stylesheet" href="styles.css?v=20260917b">
-  <script src="script.js?v=20260917b" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260917c">
+  <script src="script.js?v=20260917c" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -23,8 +23,9 @@
     <nav aria-label="Project navigation">
       <a href="#idea">The idea</a>
       <a href="#method">Method</a>
+      <a href="#human-loop">Why reflex</a>
       <a href="#evidence">Evidence</a>
-      <a href="#boundary">Boundary</a>
+      <a href="#insight">Insight</a>
       <a href="../">Ziyan Feng ↗</a>
     </nav>
   </header>
@@ -73,7 +74,7 @@
         <div><b>3.5 g</b><span>plastic cup</span></div>
         <div><b>0.3 mm</b><span>wall thickness</span></div>
         <div><b>sub-Newton</b><span>damage-sensitive contact</span></div>
-        <div class="problem-text">Too little grip slips. Too much grip deforms. The viable region is narrow and hard to judge visually during teleoperation.</div>
+        <div class="problem-text">Too little grip slips. Too much grip deforms. The viable region is narrow and hard to judge consistently through a human-operated interface.</div>
       </div>
     </section>
 
@@ -122,8 +123,82 @@
       </div>
     </section>
 
+    <section class="section loop-section" id="human-loop">
+      <div class="section-label">03 / WHY THE REFLEX MATTERS</div>
+      <div class="loop-intro">
+        <div>
+          <p class="eyebrow">TACTILE ACCESS ≠ CLOSED-LOOP ACTION SHAPING</p>
+          <h2>The operator can see the signal. <span class="accent-text">The reflex can close the loop.</span></h2>
+        </div>
+        <div class="prose">
+          <p>Manual collection was not “vision only.” The operator could inspect the live tactile GUI, observe slip events, and watch the robot on site. The difference was <strong>where the feedback loop closed</strong>.</p>
+          <p>Human-mediated correction must pass through observation, interpretation, decision, and coarse button actuation. The reflex maps tactile state directly to repeatable, bidirectional gripper corrections at 25 Hz.</p>
+        </div>
+      </div>
+
+      <div class="loop-visual" aria-label="Human-mediated and reflex feedback loop comparison">
+        <div class="loop-toolbar">
+          <div>
+            <strong>Same tactile access. Different control loop.</strong>
+            <span>Click to focus each pathway.</span>
+          </div>
+          <div class="loop-switch" data-loop-switch role="tablist" aria-label="Compare feedback loops">
+            <button type="button" role="tab" data-loop="human" aria-selected="false">Human-mediated</button>
+            <button type="button" role="tab" data-loop="reflex" class="active" aria-selected="true">25 Hz reflex</button>
+          </div>
+        </div>
+
+        <div class="loop-grid">
+          <article class="loop-card" data-loop-panel="human">
+            <div class="loop-card-head">
+              <div><span class="loop-index">A</span><h3>Human observation → reaction → action</h3></div>
+              <span class="loop-badge">Indirect · low-bandwidth</span>
+            </div>
+            <div class="signal-inputs">
+              <div><b>GUI</b><span>live tactile parameters<br>+ slip events</span></div>
+              <div><b>On-site</b><span>robot motion<br>+ visible deformation</span></div>
+            </div>
+            <div class="flow-chain human-chain">
+              <div class="flow-node"><small>01</small><strong>Observe</strong><span>read GUI + scene</span></div>
+              <i>→</i>
+              <div class="flow-node"><small>02</small><strong>Interpret</strong><span>infer force / slip</span></div>
+              <i>→</i>
+              <div class="flow-node"><small>03</small><strong>Decide</strong><span>close or open?</span></div>
+              <i>→</i>
+              <div class="flow-node"><small>04</small><strong>Button</strong><span>coarse gripper command</span></div>
+              <i>→</i>
+              <div class="flow-node"><small>05</small><strong>Robot</strong><span>contact changes</span></div>
+            </div>
+            <p class="loop-caption">Corrections are filtered through a serial human perception–decision–actuation loop. Favorable trials can occur, but fine corrections are difficult to reproduce consistently across the full horizon.</p>
+          </article>
+
+          <article class="loop-card active" data-loop-panel="reflex">
+            <div class="loop-card-head">
+              <div><span class="loop-index">B</span><h3>Tactile state → direct gripper correction</h3></div>
+              <span class="loop-badge blue">Direct · 25 Hz</span>
+            </div>
+            <div class="reflex-loop-graphic">
+              <div class="reflex-node sensor"><small>TACTILE STATE</small><strong>contact / slip / load</strong></div>
+              <div class="reflex-arrow">→</div>
+              <div class="reflex-node controller"><small>REFLEX</small><strong>bidirectional correction</strong></div>
+              <div class="reflex-arrow">→</div>
+              <div class="reflex-node gripper"><small>GRIPPER</small><strong>realized action</strong></div>
+              <div class="return-path"><span>updated contact state</span></div>
+            </div>
+            <p class="loop-caption">The tactile signal directly affects the executed gripper action. That makes the correction repeatable at contact, lift, transport, and release — and those realized actions are what enter the demonstrations.</p>
+          </article>
+        </div>
+
+        <div class="loop-principle">
+          <strong>The key distinction is not who can see touch.</strong>
+          <span>Both modes had tactile access; only the reflex supplied direct high-rate feedback to the gripper.</span>
+        </div>
+        <p class="method-note">We do not invent a standalone millisecond reaction-time number for the operator. The experimentally supported comparison is structural: a human-mediated, coarse command loop versus direct 25 Hz tactile feedback.</p>
+      </div>
+    </section>
+
     <section class="section evidence-section" id="evidence">
-      <div class="section-label">03 / THE EVIDENCE</div>
+      <div class="section-label">04 / THE EVIDENCE</div>
       <div class="evidence-intro">
         <div>
           <h2>Same student.<br><span class="accent-text">A better teacher in the data.</span></h2>
@@ -138,7 +213,7 @@
         <div class="evidence-card-head">
           <div>
             <h3>Stable grasps on the nominal plastic cup</h3>
-            <p id="evidence-meta">π₀.₅ · cross-backbone validation · Table 3</p>
+            <p id="evidence-meta">π₀.₅ · cross-backbone validation</p>
           </div>
           <div class="model-switch" data-evidence-switch role="tablist" aria-label="Select policy backbone">
             <button type="button" role="tab" data-model="act" aria-selected="false" tabindex="-1">ACT</button>
@@ -153,49 +228,89 @@
             <div class="evidence-score"><strong data-row-score>95%</strong><span data-row-count>19 / 20</span></div>
           </div>
           <div class="evidence-row" data-evidence-row>
-            <div class="evidence-row-label"><strong data-row-label>Visually screened manual data</strong><span data-row-sub>Policy only</span></div>
+            <div class="evidence-row-label"><strong data-row-label>Manual data</strong><span data-row-sub>Policy only</span></div>
             <div class="bar-track" aria-hidden="true"><div class="bar-fill warm" data-row-fill style="width:5%"></div></div>
             <div class="evidence-score"><strong data-row-score>5%</strong><span data-row-count>1 / 20</span></div>
           </div>
           <div class="evidence-row" data-evidence-row>
-            <div class="evidence-row-label"><strong data-row-label>Visually screened manual data</strong><span data-row-sub>Policy + runtime arbiter</span></div>
-            <div class="bar-track" aria-hidden="true"><div class="bar-fill slate" data-row-fill style="width:55%"></div></div>
-            <div class="evidence-score"><strong data-row-score>55%</strong><span data-row-count>11 / 20</span></div>
+            <div class="evidence-row-label"><strong data-row-label>Contact-quality screened manual data</strong><span data-row-sub>Policy only</span></div>
+            <div class="bar-track" aria-hidden="true"><div class="bar-fill slate" data-row-fill style="width:30%"></div></div>
+            <div class="evidence-score"><strong data-row-score>30%</strong><span data-row-count>6 / 20</span></div>
           </div>
         </div>
 
         <div class="evidence-summary">
-          <p id="evidence-takeaway"><strong>Collection-time shaping matters.</strong> Runtime arbitration only partially recovers the nominal performance of a policy trained on manual data.</p>
+          <p id="evidence-takeaway"><strong>Collection-time shaping matters.</strong> The same policy backbone learns substantially better nominal grasp behavior from reflex-shaped demonstrations.</p>
           <small id="evidence-footnote">30 training demonstrations per source · 20 nominal trials per condition · student inference uses no tactile input.</small>
         </div>
       </div>
 
       <div class="evidence-columns">
         <article class="text-card">
-          <p class="eyebrow">BEYOND VISUAL SCREENING</p>
+          <p class="eyebrow">SELECTION ≠ SHAPING</p>
           <h3>Better selection alone did not close the gap.</h3>
           <p>A fresh manual pool was ranked using logged contact quality. ACT trained on its top 30 demonstrations reached <strong>30% stable grasps (6/20)</strong>, versus <strong>95% (19/20)</strong> with reflex-shaped data.</p>
-          <small>Contact traces were used for offline selection only.</small>
+          <small>Contact traces were used for offline selection only; they did not actuate the gripper or enter policy training.</small>
         </article>
         <article class="text-card">
           <p class="eyebrow">WHY THE BEHAVIOR TRANSFERS</p>
           <h3>The student recovers the teacher’s closing profile.</h3>
-          <p>A sustained teacher-near run of at least 10 frames occurs in <strong>15/20</strong> reflex-data ACT episodes, versus <strong>0/20</strong> with visually screened manual data.</p>
+          <p>A sustained teacher-near run of at least 10 frames occurs in <strong>15/20</strong> reflex-data ACT episodes, versus <strong>0/20</strong> with the video-screened manual baseline.</p>
           <small>The learned effect appears in grasp trajectory shape, not only final success.</small>
         </article>
       </div>
     </section>
 
+    <section class="section insight-section" id="insight">
+      <div class="section-label">05 / THE NEW INSIGHT</div>
+      <div class="insight-hero">
+        <p class="eyebrow">FEEDBACK CAN TEACH THROUGH ACTIONS</p>
+        <h2>A controller can teach a policy <span class="accent-text">without becoming a policy input.</span></h2>
+        <p class="insight-lead">The tactile signal does not need to enter the student network to influence what the student learns. During collection, feedback changes the <strong>executed action distribution</strong>; the student then learns from those realized trajectories.</p>
+      </div>
+
+      <div class="distillation-flow" aria-label="How tactile feedback shapes a tactile-free student">
+        <div class="distill-node source"><small>FEEDBACK</small><strong>Tactile state</strong><span>contact · slip · load</span></div>
+        <div class="distill-arrow">→</div>
+        <div class="distill-node teacher"><small>TEACHER</small><strong>Closed-loop controller</strong><span>high-rate corrections</span></div>
+        <div class="distill-arrow">→</div>
+        <div class="distill-node actions"><small>WHAT CHANGES</small><strong>Executed actions</strong><span>force-valid trajectories</span></div>
+        <div class="distill-arrow">→</div>
+        <div class="distill-node demos"><small>DATA</small><strong>Demonstrations</strong><span>shaped distribution</span></div>
+        <div class="distill-arrow">→</div>
+        <div class="distill-node student"><small>STUDENT</small><strong>Tactile-free policy</strong><span>RGB + robot state</span></div>
+      </div>
+
+      <div class="insight-split">
+        <article>
+          <span class="insight-tag">OFFLINE SELECTION</span>
+          <h3>Can choose what already happened.</h3>
+          <p>Screening can rank and retain favorable manual trials. It cannot retroactively insert the reflex’s missing corrections into contact, lift, transport, or release.</p>
+        </article>
+        <div class="not-equal">≠</div>
+        <article class="shaping-card">
+          <span class="insight-tag">CLOSED-LOOP SHAPING</span>
+          <h3>Can change what happens.</h3>
+          <p>The controller alters actions while the demonstration is being generated, creating trajectories that are more repeatable and easier for the student to imitate.</p>
+        </article>
+      </div>
+
+      <div class="insight-statement">
+        <span>THE INTELLECTUAL TAKEAWAY</span>
+        <strong>Feedback can be distilled into nominal behavior through the demonstrations it creates.</strong>
+      </div>
+    </section>
+
     <section class="section dark" id="boundary">
-      <div class="section-label">04 / THE CENTRAL INSIGHT</div>
+      <div class="section-label">06 / THE BOUNDARY</div>
       <div class="boundary-grid">
         <div>
-          <p class="eyebrow">NOMINAL BEHAVIOR ≠ FAST TACTILE REACTIVITY</p>
-          <h2>Behavior transfers. <span>Fast correction still needs feedback.</span></h2>
+          <p class="eyebrow">BEHAVIOR TRANSFERS · REACTIVITY DOES NOT</p>
+          <h2>Nominal behavior can be distilled. <span>Fast correction still needs feedback.</span></h2>
           <p>Learning from tactile-shaped demonstrations does not transfer the full tactile feedback loop. Under randomized lateral disturbances, the same reflex-data π0.5 policy benefits from a separate 25 Hz gripper arbiter.</p>
         </div>
         <div class="disturbance-card">
-          <span>GRASP RETENTION UNDER DISTURBANCE</span>
+          <span>SAME REFLEX-DATA π₀.₅ POLICY · DISTURBANCE TEST</span>
           <div class="disturbance-row">
             <div><small>Policy only</small><strong>55%</strong><span>11 / 20 retained</span></div>
             <div><small>Policy + tactile arbiter</small><strong>100%</strong><span>20 / 20 retained</span></div>
@@ -203,17 +318,17 @@
           <p>The policy keeps arm control. The reflex keeps fast gripper authority.</p>
         </div>
       </div>
-      <p class="caveat">The 20/20 result is an observed outcome under this disturbance protocol, not a universal safety guarantee.</p>
+      <p class="caveat">The 20/20 result is an observed outcome under this disturbance protocol, not a universal safety guarantee. This experiment deliberately separates learned nominal behavior from online high-rate reactivity.</p>
     </section>
 
     <section class="section" id="scope">
-      <div class="section-label">05 / SCOPE &amp; REFINEMENT</div>
+      <div class="section-label">07 / SCOPE &amp; REFINEMENT</div>
       <div class="scope-grid">
         <article class="scope-card">
           <p class="eyebrow">EXPLORATORY GENERALIZATION</p>
           <h3>An unseen paper cup</h3>
           <div class="big-pair"><b>80%</b><span>vs.</span><b>30%</b></div>
-          <p>π0.5 stable grasps for reflex-data versus visually screened manual-data: <strong>8/10 vs. 3/10</strong>.</p>
+          <p>π0.5 stable grasps for reflex-data versus manual-data: <strong>8/10 vs. 3/10</strong>.</p>
           <small>The trend is favorable but not statistically significant (two-sided Fisher p = 0.0698); this is preliminary scope evidence, not a broad generalization claim.</small>
         </article>
         <article class="scope-card">
@@ -232,11 +347,11 @@
 
     <section class="takeaway">
       <p class="eyebrow">THE TAKEAWAY</p>
-      <h2>Tactile sensing can improve what a policy learns <span>before policy training even begins.</span></h2>
+      <h2>Feedback can shape what a policy learns <span>before policy training even begins.</span></h2>
       <div class="takeaway-steps">
-        <span>Use feedback to make good contact behavior repeatable.</span>
-        <span>Learn that behavior from demonstrations.</span>
-        <span>Keep fast feedback where the task still requires it.</span>
+        <span>Close the fast loop during collection.</span>
+        <span>Distill nominal behavior through executed actions.</span>
+        <span>Keep online feedback for reactivity that cannot be distilled.</span>
       </div>
       <div class="hero-actions centered">
         <a class="button primary" href="https://github.com/shayfeng" target="_blank" rel="noopener">GitHub ↗</a>

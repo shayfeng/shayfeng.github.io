@@ -7,6 +7,12 @@ sectionStyles.rel = "stylesheet";
 sectionStyles.href = "sections.css?v=20260917c";
 document.head.appendChild(sectionStyles);
 
+// Keep the public project page focused on the research idea itself rather than
+// internal review/rebuttal context.
+const rebuttalEyebrow = [...document.querySelectorAll("#idea .eyebrow")]
+  .find((node) => node.textContent.trim() === "FROM THE AUTHORS’ REBUTTAL CLARIFICATION");
+if (rebuttalEyebrow) rebuttalEyebrow.remove();
+
 const evidenceData = {
   act: {
     meta: "ACT · primary controlled comparison",

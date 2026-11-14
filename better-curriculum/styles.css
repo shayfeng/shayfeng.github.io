@@ -2,3 +2,13 @@
 
 /* Hero visual layer: clearer system-overview background while preserving foreground readability. */
 .hero{position:relative;isolation:isolate;max-width:none;margin:0;padding:116px max(34px,calc((100vw - var(--max))/2)) 72px;overflow:hidden;background:#fff}.hero::before{content:"";position:absolute;inset:-8px;background-image:url("../assets/images/corl-system.jpg");background-size:cover;background-position:center 42%;background-repeat:no-repeat;opacity:.28;filter:saturate(.88) contrast(.9);transform:scale(1.01);z-index:-2;pointer-events:none}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.72) 0%,rgba(255,255,255,.58) 38%,rgba(255,255,255,.76) 72%,rgba(255,255,255,.92) 100%);z-index:-1;pointer-events:none}.hero>*{position:relative;z-index:1}.hero-kicker{display:inline-block;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.72);box-shadow:0 1px 0 rgba(17,35,63,.05);backdrop-filter:blur(4px)}.hero .subtitle{color:#40536f}.hero .authors,.hero .affiliation,.hero .micro-note{text-shadow:0 1px 12px rgba(255,255,255,.92)}.hero .button.secondary{background:rgba(255,255,255,.82);backdrop-filter:blur(5px)}@media(max-width:760px){.hero{padding-top:84px;padding-bottom:58px}.hero::before{background-position:center 40%;opacity:.22}.hero::after{background:linear-gradient(180deg,rgba(255,255,255,.78) 0%,rgba(255,255,255,.66) 40%,rgba(255,255,255,.84) 72%,rgba(255,255,255,.94) 100%)}}@media(max-width:620px){.hero{padding-left:18px;padding-right:18px}}
+
+/* Responsive Bilibili project video, positioned immediately after the teaser. */
+.hero-figure{margin-bottom:34px}
+.project-video{max-width:var(--max);margin:0 auto 82px;padding:0 34px}
+.project-video-header{margin-bottom:20px}
+.project-video-header .eyebrow{margin:0 0 8px}
+.project-video-header h2{margin:0;font-size:clamp(1.9rem,3.6vw,3.1rem);font-weight:680;line-height:1.12;letter-spacing:-.045em}
+.project-video-frame{aspect-ratio:16/9;background:#09182d}
+.project-video-frame iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:620px){.project-video{padding:0 18px;margin-bottom:72px}.project-video-header{margin-bottom:16px}}

@@ -45,3 +45,6 @@
 .paper-details figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:var(--muted)}
 .figure-links{white-space:nowrap}
 @media(max-width:480px){.paper-details figure{padding:9px}.paper-details figcaption{font-size:13px}}
+
+/* Use a centered crop for the updated portrait. */
+.profile img{object-position:center}

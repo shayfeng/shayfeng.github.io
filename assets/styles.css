@@ -48,3 +48,9 @@
 
 /* Use a centered crop for the updated portrait. */
 .profile img{object-position:center}
+
+/* Display the full original photo without cropping. The source is 480×640 (2× desktop display). */
+.profile .profile-photo-link{display:block;line-height:0;max-width:100%;flex-shrink:0}
+.profile .profile-photo-link img{display:block;width:240px;height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center;border-radius:10px}
+@media(max-width:700px){.profile .profile-photo-link img{width:180px;height:auto}}
+@media(max-width:480px){.profile .profile-photo-link img{width:132px;height:auto}}

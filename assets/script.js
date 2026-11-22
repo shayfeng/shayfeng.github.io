@@ -4,7 +4,7 @@ const translations = {
   "beyond_title": "科研之外",
   "beyond_music": "实验室之外，音乐是我生活中重要的一部分。我喜欢小提琴 🎻、萨克斯，也喜欢自弹自唱。我的歌单以 City Pop、R&amp;B 和 Hip-Hop（尤其是 Rap）为主。",
   "beyond_sports": "我也是篮球和棒球迷。篮球支持金州勇士和俄克拉荷马城雷霆，尤其喜欢 Stephen Curry 和 Shai Gilgeous-Alexander（SGA）；棒球关注洛杉矶道奇，也很欣赏 Shohei Ohtani 和 Cody Bellinger。",
-  "beyond_philosophy": "我也喜欢哲学思辨，尤其关注存在主义关于自由、选择、责任以及生命意义的讨论。",
+  "beyond_philosophy": "我也喜欢哲学思辨，尤其关注存在主义关于自由、选择、责任以及生命意义的讨论。 我最喜欢的小说是王朔的《动物凶猛》，青春校园题材的美剧我也几乎一部不落。",
   "corl_teaser": "Teaser：通过控制器塑造示范，实现易损物体的稳定抓取。",
   "corl_system": "系统总览：示范采集、无触觉输入的策略学习与部署。",
   "iros_pouring": "倒水对比：左侧未启用反射控制，杯体滑移；右侧启用 TactileReflex，稳定完成倒水。",
